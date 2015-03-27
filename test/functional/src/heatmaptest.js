@@ -50,8 +50,8 @@ function TestCase() {
   function scaleVector(x,y,z) {
     return new THREE.Vector3(
       (x - xAxisMinMax.min)*xyScale,
-      (y - yAxisMinMax.min)*xyScale,
-      (z - valueMinMax.min)*hScale);
+      (z - valueMinMax.min)*hScale,
+      (y - yAxisMinMax.min)*xyScale);
   }
 
   for (var iy = 0; iy < data.values.length - 1; ++iy) {
@@ -86,11 +86,11 @@ function TestCase() {
 
       geom.computeFaceNormals();
 
-      var hue = (avgValue - valueMinMax.min)/vRange;
+      var hue = 0.33 + (avgValue - valueMinMax.min)/vRange*0.67;
       var color = new THREE.Color().setHSL(hue, 1.0, 0.5);
-      var mesh = new THREE.Mesh(
-        geom, 
-        new THREE.MeshLambertMaterial({color: color}));
+      var mat = new THREE.MeshLambertMaterial({color: color});
+      mat.side = THREE.DoubleSide;
+      var mesh = new THREE.Mesh(geom,   mat);
       var pos = scaleVector(
         xAxisMinMax.min + (xAxisMinMax.max - xAxisMinMax.min)/2,
         yAxisMinMax.min + (yAxisMinMax.max - yAxisMinMax.min)/2,

@@ -6,7 +6,7 @@ function Scene($container) {
   var height = $container.height();
 
   // camera
-  var camera = new THREE.PerspectiveCamera(60, width/height, 0.1, 1000 );
+  var camera = new THREE.PerspectiveCamera(60, width/height, 0.1, 1000);
   camera.position.z = 3;
   this.camera = camera;
 
