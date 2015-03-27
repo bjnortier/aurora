@@ -19,9 +19,11 @@ function Scene($container) {
   scene.add(directionalLight);
   scene.add(new THREE.AmbientLight(0x222222));
 
-  scene.add(new THREE.Mesh(
-      new THREE.BoxGeometry(1, 1, 0.1),
-      new THREE.MeshLambertMaterial({color: 0xff0000})));
+  // var debugBox = new THREE.Mesh(
+  //     new THREE.BoxGeometry(1, 1, 0.1),
+  //     new THREE.MeshLambertMaterial({color: 0xff0000}));
+  // debugBox.position.set(0,0,-0.05);
+  // scene.add(debugBox);
 
   // renderer
   var renderer = new THREE.WebGLRenderer({antialias: true});
