@@ -1,7 +1,7 @@
 {
     "fileExtensions": [ ".js", "jscs" ],
     "requireParenthesesAroundIIFE": true,
-    "maximumLineLength": 90,
+    "maximumLineLength": 100,
     "validateLineBreaks": "LF",
     "validateIndentation": 2,
     "disallowMultipleVarDecl": true,
@@ -11,9 +11,9 @@
     "safeContextKeyword": "_this",
     "requireSpaceAfterLineComment": true,
     "requireSpaceBeforeBlockStatements": true,
-    "requireSpaceBeforeKeywords": true,
     "requireSpaceBetweenArguments": true,
     "excludeFiles": [
-        "test/functional/src/orbitcontrols.js"
+        "test/functional/src/orbitcontrols.js",
+        "test/functional/src/heatmapdata.js"
     ]
 }

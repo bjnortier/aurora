@@ -1,3 +1,4 @@
+
 var gulp = require('gulp');
 var path = require('path');
 var mocha = require('gulp-mocha');
@@ -11,55 +12,55 @@ var unitTestFiles = path.join('test', 'unit', '**', '*.test.js');
 var functionalTestFiles = path.join('test', 'functional', 'src', '*.js');
 
 gulp.task('clearconsole', function(){
-    process.stdout.write('\x1Bc');
+  process.stdout.write('\x1Bc');
 });
 
 gulp.task('jshint', function(){
-    return gulp.src([indexFile, srcFiles, unitTestFiles, functionalTestFiles])
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'))
-        .pipe(jshint.reporter('fail'));
+  return gulp.src([indexFile, srcFiles, unitTestFiles, functionalTestFiles])
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('jscs', function(){
-    return gulp.src([indexFile, srcFiles, unitTestFiles, functionalTestFiles])
-        .pipe(jscs());
+  return gulp.src([indexFile, srcFiles, unitTestFiles, functionalTestFiles])
+    .pipe(jscs());
 });
 
 gulp.task('unit', function(){
-    return gulp.src(unitTestFiles)
-        .pipe(mocha({}));
+  return gulp.src(unitTestFiles)
+    .pipe(mocha({}));
 });
 
 function createWebpackResultFn(callback) {
-    return function(err, stats){
-        if (err || (stats.hasErrors)) {
-            var errorMsg = err || stats.compilation.errors.join('\n');
-            callback(errorMsg);
-        } else {
-            callback();
-        }
-    };
+  return function(err, stats){
+    if (err || (stats.hasErrors)) {
+      var errorMsg = err || stats.compilation.errors.join('\n');
+      callback(errorMsg);
+    } else {
+      callback();
+    }
+  };
 }
 
 gulp.task('webpack', function(callback){
-    webpack({
-        entry: {
-            heatmaptest: './test/functional/src/heatmaptest.js',
-            vendor: ['jquery', 'three'],
-        },
-        output: {
-            path: 'test/functional/lib',
-            filename: '[name].bundle.js',
-            publicPath: 'lib/',
-        },
-        devtool: '#inline-source-map',
-        plugins: [
-            // Common code
-            // http://webpack.github.io/docs/code-splitting.html
-            new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js')
-        ]
-    }, createWebpackResultFn(callback));
+  webpack({
+    entry: {
+      heatmaptest: './test/functional/src/heatmaptest.js',
+      vendor: ['jquery', 'three'],
+    },
+    output: {
+      path: 'test/functional/lib',
+      filename: '[name].bundle.js',
+      publicPath: 'lib/',
+    },
+    devtool: '#inline-source-map',
+    plugins: [
+      // Common code
+      // http://webpack.github.io/docs/code-splitting.html
+      new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js')
+    ]
+  }, createWebpackResultFn(callback));
 });
 
 gulp.task('test', ['jshint', 'jscs', 'unit', 'webpack']);
@@ -67,9 +68,9 @@ gulp.task('test', ['jshint', 'jscs', 'unit', 'webpack']);
 gulp.task('default', ['test']);
 
 gulp.task('watch', function(){
-    gulp.watch([indexFile, srcFiles], ['clearconsole', 'jshint', 'jscs', 'unit', 'webpack']);
-    gulp.watch(unitTestFiles, ['clearconsole', 'jshint', 'jscs', 'unit']);
-    gulp.watch(functionalTestFiles, ['clearconsole', 'jshint', 'jscs', 'webpack']);
+  gulp.watch([indexFile, srcFiles], ['clearconsole', 'jshint', 'jscs', 'unit', 'webpack']);
+  gulp.watch(unitTestFiles, ['clearconsole', 'jshint', 'jscs', 'unit']);
+  gulp.watch(functionalTestFiles, ['clearconsole', 'jshint', 'jscs', 'webpack']);
 });
 
 

@@ -20,7 +20,7 @@ function Scene($container) {
   scene.add(new THREE.AmbientLight(0x222222));
 
   scene.add(new THREE.Mesh(
-      new THREE.BoxGeometry(0.5, 0.5, 0.5),
+      new THREE.BoxGeometry(1, 1, 0.1),
       new THREE.MeshLambertMaterial({color: 0xff0000})));
 
   // renderer
@@ -53,6 +53,10 @@ function Scene($container) {
     renderer.setSize(width, height);
     render();
   }
+
+  this.__defineGetter__('threeScene', function() {
+    return scene;
+  });
 
   window.addEventListener('resize', resize, false);
   controls.addEventListener('change', render);
