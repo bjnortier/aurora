@@ -1,9 +1,7 @@
-var $ = require('./vendor').$;
-var THREE = require('./vendor').three;
-var conrec = require('conrec');
-console.log(conrec);
+var THREE = require('bicycle').THREE;
+var $ = require('bicycle').$;
+var Scene = require('bicycle/lib/views/ThreeJSScene');
 
-var Scene = require('./Scene');
 var data = require('./elevationmapdata');
 var MinMax = require('../../../lib/MinMax');
 

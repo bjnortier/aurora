@@ -47,7 +47,7 @@ gulp.task('webpack', function(callback){
   webpack({
     entry: {
       elevationmaptest: './test/functional/src/elevationmaptest.js',
-      vendor: ['jquery', 'three'],
+      // vendor: ['jquery', 'three'],
     },
     output: {
       path: 'test/functional/lib',
@@ -55,11 +55,11 @@ gulp.task('webpack', function(callback){
       publicPath: 'lib/',
     },
     devtool: '#inline-source-map',
-    plugins: [
-      // Common code
-      // http://webpack.github.io/docs/code-splitting.html
-      new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js')
-    ]
+    // plugins: [
+    //   // Common code
+    //   // http://webpack.github.io/docs/code-splitting.html
+    //   new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js')
+    // ]
   }, createWebpackResultFn(callback));
 });
 
