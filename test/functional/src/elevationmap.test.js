@@ -2,8 +2,10 @@ var THREE = require('bicycle').THREE;
 var $ = require('bicycle').$;
 var Scene = require('bicycle/lib/views/ThreeJSScene');
 
-var data = require('./elevationmapdata');
-var MinMax = require('../../../lib/MinMax');
+var gradients = require('../../../').gradients;
+var MinMax = require('../../../').MinMax;
+
+var data = require('../data/elevationmapdata');
 
 // Data consistency check
 if (data.values.length !== data.yAxis.length) {
@@ -70,8 +72,9 @@ for (var iy = 0; iy < data.values.length - 1; ++iy) {
         data.values[iy + 1][ix],
       ];
       var colors = values.map(function(v) {
-        var hue = 0.33 + (v - valueMinMax.min)/vRange*0.67;
-        return new THREE.Color().setHSL(hue, 1.0, 0.5);
+        var t = (v - valueMinMax.min)/vRange;
+        var rgb = gradients.blackredyellow(t);
+        return new THREE.Color().setRGB(rgb[0], rgb[1], rgb[2]);
       });
 
 
