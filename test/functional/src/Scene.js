@@ -48,8 +48,7 @@ function Scene($container) {
 
   function resize() {
     var width = $container.width();
-    var height = Math.floor(width*9/16);
-    $container.height(height);
+    var height = $container.height();
     camera.aspect = width/height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);

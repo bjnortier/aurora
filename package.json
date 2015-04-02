@@ -24,10 +24,14 @@
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.0",
+    "jquery": "^2.1.1",
     "jshint-stylish": "^1.0.1",
+    "legacy-loader": "0.0.2",
     "mocha": "^2.2.1",
-    "webpack": "^1.7.3",
     "three": "^0.69.0",
-    "jquery": "^2.1.1"
+    "webpack": "^1.7.3"
+  },
+  "browser": {
+    "conrec": "./test/functional/lib/conrec.js"
   }
 }
