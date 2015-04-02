@@ -4,7 +4,7 @@ var conrec = require('conrec');
 console.log(conrec);
 
 var Scene = require('./Scene');
-var data = require('./heatmapdata');
+var data = require('./elevationmapdata');
 var MinMax = require('../../../lib/MinMax');
 
 // Data consistency check
@@ -121,7 +121,11 @@ geom.computeFaceNormals();
 //     var color = new THREE.Color().setHSL(hue, 1.0, 0.5);
 // var mat = new THREE.MeshLambertMaterial({color: 0xff0000});
 
-var mat = new THREE.MeshLambertMaterial( { color: 0xffffff, shading: THREE.FlatShading, vertexColors: THREE.VertexColors });
+var mat = new THREE.MeshLambertMaterial({
+  color: 0xffffff, 
+  shading: THREE.FlatShading,
+  vertexColors: THREE.VertexColors
+});
 
 mat.side = THREE.DoubleSide;
 var mesh = new THREE.Mesh(geom, mat);

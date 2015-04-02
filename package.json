@@ -1,7 +1,7 @@
 {
   "name": "aurora",
   "version": "0.1.0",
-  "description": "WebGL [heat|contour|elevation] maps",
+  "description": "WebGL [contour|elevation] maps",
   "main": "index.js",
   "dependencies": {
     "bicycle": "^0.1.0"

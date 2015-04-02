@@ -46,7 +46,7 @@ function createWebpackResultFn(callback) {
 gulp.task('webpack', function(callback){
   webpack({
     entry: {
-      heatmaptest: './test/functional/src/heatmaptest.js',
+      elevationmaptest: './test/functional/src/elevationmaptest.js',
       vendor: ['jquery', 'three'],
     },
     output: {
