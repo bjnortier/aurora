@@ -4,6 +4,8 @@ var Model = bicycle.Model;
 var SVGScene = require('bicycle/lib/views/SVGScene');
 var SVGView = require('bicycle/lib/views/SVGView');
 
+var gradients = require('../../../').gradients;
+
 var scene = new SVGScene($('#viewport'));
 
 function GradientsModel(f) {
@@ -33,15 +35,7 @@ GradientsView.prototype.onChange = function() {
   this.draw.rect(255, 50).fill('none').stroke({width: 1, color: 'black'});
 };
 
-// A gradient function takes a value from 0 to 1 as input,
-// and ouptuts float r,g,b,a values.
-var m1 = new GradientsModel(function(t) {
-  if (t < 0.5) {
-    return [1.0*t*2, 0, 0, 1.0];
-  } else {
-    return [1.0, (t-0.5)*2*1.0, 0, 1.0];
-  }
-});
+var m1 = new GradientsModel(gradients.blackredyellow);
 
 new GradientsView(scene, m1);
 

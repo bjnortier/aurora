@@ -2,7 +2,7 @@
   "name": "aurora",
   "version": "0.1.0",
   "description": "WebGL [contour|elevation] maps",
-  "main": "index.js",
+  "main": "lib/index.js",
   "dependencies": {
     "bicycle": "^0.1.0"
   },
