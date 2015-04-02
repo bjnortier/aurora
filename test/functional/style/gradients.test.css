@@ -1,0 +1,7 @@
+#viewport {
+    position: absolute; 
+    top: 60px;
+    height: 500px;
+    width: 100%;
+    box-sizing: border-box;
+}

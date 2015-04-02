@@ -46,7 +46,8 @@ function createWebpackResultFn(callback) {
 gulp.task('webpack', function(callback){
   webpack({
     entry: {
-      elevationmaptest: './test/functional/src/elevationmaptest.js',
+      'elevationmap.test': './test/functional/src/elevationmap.test.js',
+      'gradients.test': './test/functional/src/gradients.test.js',
       // vendor: ['jquery', 'three'],
     },
     output: {
