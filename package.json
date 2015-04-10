@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "npm test",
-    "postinstall": "./node_modules/.bin/webpack",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
