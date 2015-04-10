@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "description": "WebGL [contour|elevation] maps",
   "main": "lib/index.js",
-  "dependencies": {
-    "bicycle": "^0.1.0"
-  },
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "postinstall": "./node_modules/.bin/webpack",
   },
   "repository": {
     "type": "git",
@@ -25,9 +23,11 @@
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.0",
     "jshint-stylish": "^1.0.1",
-    "legacy-loader": "0.0.2",
     "mocha": "^2.2.1",
     "webpack": "^1.7.3"
+  },
+  "dependencies": {
+    "flow": "bjnortier/flow#develop"
   },
   "browser": {
     "conrec": "./test/functional/lib/conrec.js"

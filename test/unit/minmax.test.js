@@ -25,4 +25,20 @@ describe('MinMax', function() {
 
   });
 
+  it('can determine the min/max of an array using a filter', function() {
+
+    var m1 = new MinMax().reduceArray([-3, 50, 4, 20], function() {
+      return true;
+    });
+    assert.equal(m1.min, -3);
+    assert.equal(m1.max, 50);
+
+    var m2 = new MinMax().reduceArray([-3, 0, 50, 4, 20], function(x) {
+      return x > 0;
+    });
+    assert.equal(m2.min, 4);
+    assert.equal(m2.max, 50);
+
+  });
+
 });

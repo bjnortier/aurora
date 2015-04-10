@@ -1,6 +1,7 @@
-var THREE = require('bicycle').THREE;
-var $ = require('bicycle').$;
-var Scene = require('bicycle/lib/views/ThreeJSScene');
+var flow = require('flow');
+var THREE = flow.THREE;
+var $ = flow.$;
+var Scene = flow.scenes.ThreeJSScene;
 
 var gradients = require('../../../').gradients;
 var MinMax = require('../../../').MinMax;
