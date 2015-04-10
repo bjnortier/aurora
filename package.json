@@ -4,8 +4,7 @@
   "description": "WebGL [contour|elevation] maps",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm test",
-    "postinstall": "./node_modules/.bin/webpack"
+    "test": "npm test"
   },
   "repository": {
     "type": "git",
