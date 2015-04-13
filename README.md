@@ -1,3 +1,3 @@
 # aurora
 
-WebGL (Three.js) [contour|elevation] maps.
+WebGL (Three.js) [contour|height] maps.

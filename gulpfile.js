@@ -35,7 +35,7 @@ gulp.task('unit', function() {
 gulp.task('webpack', function(callback) {
   webpack({
     entry: {
-      'elevationmap.test': './test/functional/src/elevationmap.test.js',
+      'heightmap.test': './test/functional/src/heightmap.test.js',
       'gradients.test': './test/functional/src/gradients.test.js',
     },
     output: {
