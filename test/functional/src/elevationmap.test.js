@@ -1,7 +1,9 @@
 var flow = require('flow');
 var THREE = flow.THREE;
 var $ = flow.$;
+var EmptyModel = flow.Model;
 var Scene = flow.scenes.ThreeJSScene;
+var AxesView = flow.views.AxesView;
 
 var gradients = require('../../../').gradients;
 var MinMax = require('../../../').MinMax;
@@ -28,6 +30,8 @@ var yRange = (yAxisMinMax.max - yAxisMinMax.min);
 var vRange = (valueMinMax.max - valueMinMax.min);
 
 var scene = new Scene($('#viewport'));
+
+new AxesView(new EmptyModel(), scene);
 
 var xyScale = (xRange > yRange) ? 1/xRange : 1/yRange;
 var hScale = 0.5/vRange;
@@ -74,7 +78,7 @@ for (var iy = 0; iy < data.values.length - 1; ++iy) {
       ];
       var colors = values.map(function(v) {
         var t = (v - valueMinMax.min)/vRange;
-        var rgb = gradients.blackredyellow(t);
+        var rgb = gradients.bluecyangreenyellowred(t);
         return new THREE.Color().setRGB(rgb[0], rgb[1], rgb[2]);
       });
 
