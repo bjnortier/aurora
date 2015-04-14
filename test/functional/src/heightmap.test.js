@@ -10,11 +10,10 @@ var lib = require('../../../');
 var HeightMapModel = lib.models.HeightMapModel;
 var HeightMapView = lib.views.HeightMapView;
 var XYPlaneAxesView = lib.views.XYPlaneAxesView;
+var ZAxisView = lib.views.ZAxisView;
 
 var scene = new Scene($('#viewport'));
 new AxesView(new EmptyModel(), scene);
-
-
 
 var data = require('../data/heightmapdata');
 var model = new HeightMapModel(data);
@@ -46,3 +45,4 @@ var viewOptions = {
 
 new HeightMapView(model, scene, viewOptions);
 new XYPlaneAxesView(model, scene, viewOptions);
+new ZAxisView(model, scene, viewOptions);
