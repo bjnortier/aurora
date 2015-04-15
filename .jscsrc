@@ -12,8 +12,5 @@
     "requireSpaceAfterLineComment": true,
     "requireSpaceBeforeBlockStatements": true,
     "requireSpaceBetweenArguments": true,
-    "excludeFiles": [
-        "test/functional/src/orbitcontrols.js",
-        "test/functional/src/elevationmapdata.js"
-    ]
+    "excludeFiles": []
 }

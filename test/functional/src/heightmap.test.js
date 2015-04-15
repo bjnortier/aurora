@@ -12,7 +12,7 @@ var HeightMapView = lib.views.HeightMapView;
 var XYPlaneAxesView = lib.views.XYPlaneAxesView;
 var ZAxisView = lib.views.ZAxisView;
 
-var scene = new Scene($('#viewport'));
+var scene = new Scene($('#viewport'), {cameraPosition: {x: 0.2, y: -2, z: 1.5}});
 new AxesView(new EmptyModel(), scene);
 
 var data = require('../data/heightmapdata');
