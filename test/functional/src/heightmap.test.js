@@ -8,9 +8,13 @@ var AxesView = flow.views.AxesView;
 var lib = require('../../../');
 
 var HeightMapModel = lib.models.HeightMapModel;
+
 var HeightMapView = lib.views.HeightMapView;
 var XYPlaneAxesView = lib.views.XYPlaneAxesView;
 var ZAxisView = lib.views.ZAxisView;
+var CoordinateLabelView = lib.views.CoordinateLabelView;
+
+var ViewPositionEventController = lib.controllers.ViewPositionEventController;
 
 var scene = new Scene($('#viewport'), {cameraPosition: {x: 0.2, y: -2, z: 1.5}});
 new AxesView(new EmptyModel(), scene);
@@ -39,10 +43,23 @@ function scaleXYZ(x, y, z) {
     (z - model.valueMinMax.min)*hScale);
 }
 
+function unscaleXYZ(vector) {
+  return {
+    x: vector.x/xyScale + model.xAxisMinMax.min,
+    y: vector.y/xyScale + model.yAxisMinMax.min,
+    z: vector.z/hScale + model.valueMinMax.min,
+  };
+}
+
 var viewOptions = {
   scaleXYZ: scaleXYZ,  
+  unscaleXYZ: unscaleXYZ,
 };
 
-new HeightMapView(model, scene, viewOptions);
+var heightMapView = new HeightMapView(model, scene, viewOptions);
 new XYPlaneAxesView(model, scene, viewOptions);
 new ZAxisView(model, scene, viewOptions);
+var coordinateLabelView = new CoordinateLabelView(model, scene, viewOptions);
+coordinateLabelView.hide();
+
+new ViewPositionEventController(new EmptyModel(), heightMapView, coordinateLabelView);
