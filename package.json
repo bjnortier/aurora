@@ -1,6 +1,6 @@
 {
   "name": "aurora",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WebGL [contour|elevation] maps",
   "main": "lib/index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "webpack": "^1.7.3"
   },
   "dependencies": {
-    "flow": "bjnortier/flow#develop",
+    "flow": "bjnortier/flow#0.2.0",
     "hershey": "^1.0.2"
   },
   "browser": {
