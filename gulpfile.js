@@ -8,8 +8,8 @@ var webpack = require('webpack');
 
 var indexFile = 'index.js';
 var srcFiles = path.join('lib', '**', '*.js');
-var unitTestFiles = path.join('test', 'unit', '**', '*.test.js');
-var functionalTestFiles = path.join('test', 'functional', 'src', '*.js');
+var unitTestFiles = path.join('test', 'unit', '**', '*.js');
+var functionalTestFiles = path.join('test', 'functional', 'src', '**', '*.js');
 
 gulp.task('clearconsole', function() {
   process.stdout.write('\x1Bc');

@@ -26,7 +26,8 @@
     "webpack": "^1.7.3"
   },
   "dependencies": {
-    "flow": "bjnortier/flow#develop"
+    "flow": "bjnortier/flow#develop",
+    "hershey": "^1.0.2"
   },
   "browser": {
     "conrec": "./test/functional/lib/conrec.js"
