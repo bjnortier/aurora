@@ -1,5 +1,4 @@
 var flow = require('flow');
-var THREE = flow.THREE;
 var $ = flow.$;
 var EmptyModel = flow.Model;
 var Scene = flow.scenes.ThreeJSScene;
@@ -20,40 +19,13 @@ var scene = new Scene($('#viewport'), {cameraPosition: {x: 0.2, y: -2, z: 1.5}})
 new AxesView(new EmptyModel(), scene);
 
 var data = require('../data/heightmapdata');
-var model = new HeightMapModel(data);
-
-var xyScale;
-var xOffset;
-var yOffset;
-if (model.xRange > model.yRange) {
-  xyScale = 1/model.xRange;
-  xOffset = 0;
-  yOffset = model.yRange/2/xyScale;
-} else {
-  xyScale = 1/model.yRange;
-  xOffset = model.yRagne/2/xyScale;
-  yOffset = 0;
-}
-var hScale = 0.5/model.vRange;
-
-function scaleXYZ(x, y, z) {
-  return new THREE.Vector3(
-    (x - model.xAxisMinMax.min)*xyScale,
-    (y - model.yAxisMinMax.min)*xyScale,
-    (z - model.valueMinMax.min)*hScale);
-}
-
-function unscaleXYZ(vector) {
-  return {
-    x: vector.x/xyScale + model.xAxisMinMax.min,
-    y: vector.y/xyScale + model.yAxisMinMax.min,
-    z: vector.z/hScale + model.valueMinMax.min,
-  };
-}
+var model = new HeightMapModel(data, {holeValue: -7});
 
 var viewOptions = {
-  scaleXYZ: scaleXYZ,  
-  unscaleXYZ: unscaleXYZ,
+  scaleXYZ: model.scaleXYZ,  
+  unscaleXYZ: model.unscaleXYZ,
+  xyGridSize: 1.0,
+  zGridSize: 200.0,
 };
 
 var heightMapView = new HeightMapView(model, scene, viewOptions);
