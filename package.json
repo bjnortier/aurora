@@ -1,6 +1,6 @@
 {
   "name": "aurora",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "WebGL [contour|elevation] maps",
   "main": "lib/index.js",
   "scripts": {
