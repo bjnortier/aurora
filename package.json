@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/bjnortier/aurora",
   "dependencies": {
-    "flow": "bjnortier/flow#0.2.3",
+    "flow": "bjnortier/flow#0.3.0",
     "hershey": "^1.0.2",
     "webpack": "^1.8.4"
   },
