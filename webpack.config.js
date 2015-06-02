@@ -7,5 +7,5 @@ module.exports = {
     path: 'test/functional/lib',
     filename: "[name].bundle.js"
   },
-  devtool: "#inline-source-map"
+  devtool: "#source-map"
 };
