@@ -22,8 +22,8 @@ var data = require('../data/heightmapdata');
 var model = new HeightMapModel(data, {holeValue: -7});
 
 var viewOptions = {
-  scaleXYZ: model.scaleXYZ,  
-  unscaleXYZ: model.unscaleXYZ,
+  scaleXYZ: model.scaleXYZ11,  
+  unscaleXYZ: model.unscaleXYZ11,
   xyGridSize: 1.0,
   zGridSize: 200.0,
 };
