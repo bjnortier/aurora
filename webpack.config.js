@@ -7,5 +7,14 @@ module.exports = {
     path: 'test/functional/lib',
     filename: "[name].bundle.js"
   },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel'
+      }
+    ]
+  },
   devtool: "#source-map"
 };
